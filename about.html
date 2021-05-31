@@ -1,0 +1,76 @@
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="css/main.css">
+<title>Fashion Hub</title>
+<script src="https://kit.fontawesome.com/9269e9eed4.js" crossorigin="anonymous"></script>
+<script>
+    function stickyMenu(){
+        var sticky=document.getElementById('sticky');
+        if(window.pageXOffset > 220){
+            sticky.classList.add('sticky');
+        }
+        else{
+            sticky.classList.remove('sticky');
+        }
+    }
+    window.onscroll = function(){
+        stickyMenu();
+    }
+</script>
+</head>
+<body>
+    <div class="parallax">
+        <div class="page-title">  <img src="images/logo.jpg"> Fashion Hub </div>
+    </div>
+    <div class="menu" id="sticky">
+        <ul class="menu-ul">
+            <a href="home.html" class="a-menu"><li>Home</li></a>
+            <a href="products.html" class="a-menu"><li>Products</li></a>
+            <a href="about.html" class="a-menu"><li>About</li></a>
+            <a href="contact.html" class="a-menu"><li>Contact Us</li></a>
+            <a href="contact.html" class="a-menu" target="_blank"><li><i class="far fa-user"></i>Account</li></a>
+            <a href="#" class="a-menu"><li class="cart"><i class="fas fa-shopping-cart">Cart <span>0</span></i></li></a>
+        </ul>
+    </div>
+       
+
+
+
+<!--Home Page Ends-->
+
+<!--footer starts-->
+    <div class="parallax">
+        <div class="footer">
+            <div class="quick-links">
+                <div>Locations</div>
+                <ul>
+                    <li><a href="https://www.google.com/maps/place/Rice+Spice+Dice+Kogarah/@-33.962108,151.13193,15z/data=!4m2!3m1!1s0x0:0x80864818236bf192?sa=X&ved=2ahUKEwjl4pCll__uAhW7IbcAHQxHBXYQ_BIwEnoECCwQBQ" class="a-links">Lakemba Fashion House</a></li>
+                    <li><a href="https://www.google.com/maps/place/Rice+Spice+Dice+Auburn/@-33.8489052,151.033478,15z/data=!4m5!3m4!1s0x0:0x6add41c5525eefe9!8m2!3d-33.8489052!4d151.033478" class="a-links">Merrylands Fashion House</a></li>
+                </ul>
+            </div>
+            <div class="quick-links">
+                <div>Careers</div>
+                <ul>
+                    <li><a href="" class="a-links">Packing staff</a></li>
+                    <li><a href="" class="a-links">Delivery person</a></li>
+                    <li><a href="" class="a-links">Shelf Fillers</a></li>
+                </ul>
+            </div>
+            <div class="quick-links">
+                <div>Quick Links</div>
+                <ul>
+                    <li><a href="FAQ.html" class="a-links">FAQ</a></li>
+                    <li><a href="contactus.html" class="a-links">Help</a></li>
+                    <li><a href="privacyPolicy.html" class="a-links">Privacy Policy</a></li>
+                    <li><a href="T&A.html" class="a-links">Terms and Conditions</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="copyrights">
+    <i class="fas fa-copyright"></i>2021 By Fashion Hub Group
+    </div>
+<!--footer ends-->        
+</body>
+</html>
