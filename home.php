@@ -1,6 +1,8 @@
 <?php 
+    session_start();
     include ("connection.php");
     $query = "SELECT * FROM product";
+    $cart = $_SESSION;
 
 ?>
 
@@ -40,6 +42,20 @@
 <!--Home Page Begins-->
 
 <div class="container">
+    <?php if (isset($_SESSION['success_cart'])) : ?>
+        <h4 style="color: green; font-weight: bold">
+            <?php 
+            echo $_SESSION['success_cart']; 
+            unset($_SESSION['success_cart']);
+            ?></h4> <br>
+    <?php endif ?>
+    <?php if (isset($_SESSION['checkout_success'])) : ?>
+        <h4 style="color: green; font-weight: bold">
+            <?php 
+            echo $_SESSION['checkout_success']; 
+            unset($_SESSION['checkout_success']);
+            ?></h4> <br>
+    <?php endif ?>
         <div class="categories">
             <a href="#caps">
                 <img src="images/103.jpg" class="item-image"/>
@@ -102,9 +118,20 @@
                     </div>
                     <p>$ <?= $data['price']?></p>
                     <form action="server.php" method="post">
-                        <input type="hidden" name="product_id" value="<?=$data['id']?>">
-                        <input type="hidden" name="image_name" value="<?=$data['image']?>">
-                        <input type="submit" name="add_to_cart" value="Add to Cart">
+                        Quantity:
+                        <select name="quantity" id="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select><br><br>
+                        <input type="hidden" name="p_id" value="<?=$data['id']?>">
+                        <input type="hidden" name="p_name" value="<?=$data['name']?>">
+                        <input type="hidden" name="p_category" value="<?=$data['category']?>">
+                        <input type="hidden" name="p_price" value="<?=$data['price']?>">
+                        <input type="hidden" name="p_image" value="<?=$data['image']?>">
+                        <input type="submit" name="add_to_cart" value="Shop Now">
                     </form>
                 </div>
             <?php } 
@@ -130,9 +157,20 @@
                     </div>
                     <p>$ <?= $data['price']?></p>
                     <form action="server.php" method="post">
-                        <input type="hidden" name="product_id" value="<?=$data['id']?>">
-                        <input type="hidden" name="image_name" value="<?=$data['image']?>">
-                        <input type="submit" name="add_to_cart" value="Add to Cart">
+                        Quantity:
+                        <select name="quantity" id="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select><br><br>
+                        <input type="hidden" name="p_id" value="<?=$data['id']?>">
+                        <input type="hidden" name="p_name" value="<?=$data['name']?>">
+                        <input type="hidden" name="p_category" value="<?=$data['category']?>">
+                        <input type="hidden" name="p_price" value="<?=$data['price']?>">
+                        <input type="hidden" name="p_image" value="<?=$data['image']?>">
+                        <input type="submit" name="add_to_cart" value="Shop Now">
                     </form>
                 </div>
             <?php } 
@@ -158,9 +196,20 @@
                     </div>
                     <p>$ <?= $data['price']?></p>
                     <form action="server.php" method="post">
-                        <input type="hidden" name="product_id" value="<?=$data['id']?>">
-                        <input type="hidden" name="image_name" value="<?=$data['image']?>">
-                        <input type="submit" name="add_to_cart" value="Add to Cart">
+                        Quantity:
+                        <select name="quantity" id="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select><br><br>
+                        <input type="hidden" name="p_id" value="<?=$data['id']?>">
+                        <input type="hidden" name="p_name" value="<?=$data['name']?>">
+                        <input type="hidden" name="p_category" value="<?=$data['category']?>">
+                        <input type="hidden" name="p_price" value="<?=$data['price']?>">
+                        <input type="hidden" name="p_image" value="<?=$data['image']?>">
+                        <input type="submit" name="add_to_cart" value="Shop Now">
                     </form>
                 </div>
             <?php } 
@@ -187,9 +236,20 @@
                     </div>
                     <p>$ <?= $data['price']?></p>
                     <form action="server.php" method="post">
-                        <input type="hidden" name="product_id" value="<?=$data['id']?>">
-                        <input type="hidden" name="image_name" value="<?=$data['image']?>">
-                        <input type="submit" name="add_to_cart" value="Add to Cart">
+                        Quantity:
+                        <select name="quantity" id="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select><br><br>
+                        <input type="hidden" name="p_id" value="<?=$data['id']?>">
+                        <input type="hidden" name="p_name" value="<?=$data['name']?>">
+                        <input type="hidden" name="p_category" value="<?=$data['category']?>">
+                        <input type="hidden" name="p_price" value="<?=$data['price']?>">
+                        <input type="hidden" name="p_image" value="<?=$data['image']?>">
+                        <input type="submit" name="add_to_cart" value="Shop Now">
                     </form>
                 </div>
             <?php } 
@@ -215,9 +275,20 @@
                     </div>
                     <p>$ <?= $data['price']?></p>
                     <form action="server.php" method="post">
-                        <input type="hidden" name="product_id" value="<?=$data['id']?>">
-                        <input type="hidden" name="image_name" value="<?=$data['image']?>">
-                        <input type="submit" name="add_to_cart" value="Add to Cart">
+                        Quantity:
+                        <select name="quantity" id="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select><br><br>
+                        <input type="hidden" name="p_id" value="<?=$data['id']?>">
+                        <input type="hidden" name="p_name" value="<?=$data['name']?>">
+                        <input type="hidden" name="p_category" value="<?=$data['category']?>">
+                        <input type="hidden" name="p_price" value="<?=$data['price']?>">
+                        <input type="hidden" name="p_image" value="<?=$data['image']?>">
+                        <input type="submit" name="add_to_cart" value="Shop Now">
                     </form>
                 </div>
             <?php } 
@@ -244,9 +315,20 @@
                     </div>
                     <p>$ <?= $data['price']?></p>
                     <form action="server.php" method="post">
-                        <input type="hidden" name="product_id" value="<?=$data['id']?>">
-                        <input type="hidden" name="image_name" value="<?=$data['image']?>">
-                        <input type="submit" name="add_to_cart" value="Add to Cart">
+                        Quantity:
+                        <select name="quantity" id="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select><br><br>
+                        <input type="hidden" name="p_id" value="<?=$data['id']?>">
+                        <input type="hidden" name="p_name" value="<?=$data['name']?>">
+                        <input type="hidden" name="p_category" value="<?=$data['category']?>">
+                        <input type="hidden" name="p_price" value="<?=$data['price']?>">
+                        <input type="hidden" name="p_image" value="<?=$data['image']?>">
+                        <input type="submit" name="add_to_cart" value="Shop Now">
                     </form>
                 </div>
             <?php } 
@@ -273,9 +355,20 @@
                     </div>
                     <p>$ <?= $data['price']?></p>
                     <form action="server.php" method="post">
-                        <input type="hidden" name="product_id" value="<?=$data['id']?>">
-                        <input type="hidden" name="image_name" value="<?=$data['image']?>">
-                        <input type="submit" name="add_to_cart" value="Add to Cart">
+                        Quantity:
+                        <select name="quantity" id="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select><br><br>
+                        <input type="hidden" name="p_id" value="<?=$data['id']?>">
+                        <input type="hidden" name="p_name" value="<?=$data['name']?>">
+                        <input type="hidden" name="p_category" value="<?=$data['category']?>">
+                        <input type="hidden" name="p_price" value="<?=$data['price']?>">
+                        <input type="hidden" name="p_image" value="<?=$data['image']?>">
+                        <input type="submit" name="add_to_cart" value="Shop Now">
                     </form>
                 </div>
             <?php } 

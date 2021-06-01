@@ -1,3 +1,12 @@
+<?php
+    session_start();
+    include ("connection.php");
+    $query = "SELECT * FROM product";
+
+?>
+
+
+
 <html>
 <head>
 <meta charset="utf-8">
@@ -23,33 +32,59 @@
     <div class="parallax">
         <div class="page-title">  <img src="images/logo.jpg"> Fashion Hub </div>
     </div>
-    <div class="menu" id="sticky">
-        <ul class="menu-ul">
-            <a href="home.php" class="a-menu"><li>Home</li></a>
-            <a href="products.html" class="a-menu"><li>Products</li></a>
-            <a href="#" class="a-menu"><li>About</li></a>
-            <a href="#" class="a-menu"><li>Contact Us</li></a>
-            <a href="account.html" class="a-menu" ><li><i class="far fa-user"></i>Account</li></a>
-            <a href="#" class="a-menu"><li class="cart"><i class="fas fa-shopping-cart">Cart <span>0</span></i></li></a>
-        </ul>
-    </div>
+    <?php include ('usermenu.php') ?>
     <h3 class="title-2">All Products</h3>
-<div class="container">
-        <div class ="categories">
-            <p> Yah Chai backend ma bhako product sabai tanne hai</p>
-            <img src="images/caps2.webp" class="item-image">
-            <h4>blue hat</h4>
-            <div class="rating">
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star"></i>
-                <i class="fa fa-star-o"></i>
-            </div>
-            <p>$25</p>
-        </div>
-
-</div>
+    <div class="container">
+        <?php if (isset($_SESSION['success_cart'])) : ?>
+            <h4 style="color: green; font-weight: bold">
+                <?php 
+                echo $_SESSION['success_cart']; 
+                unset($_SESSION['success_cart']);
+                ?></h4> <br>
+        <?php endif ?>
+        <?php if (isset($_SESSION['checkout_success'])) : ?>
+            <h4 style="color: green; font-weight: bold">
+                <?php 
+                echo $_SESSION['checkout_success']; 
+                unset($_SESSION['checkout_success']);
+                ?></h4> <br>
+        <?php endif ?>
+        <?php 
+        $result = mysqli_query($db, $query);
+        while($data = mysqli_fetch_assoc($result)){ ?>
+                <div class ="categories">
+                    <img src="images/products/<?=$data['image']?>" class="item-image">
+                    <h4><?= $data['name']?></h4>
+                    <div class="rating">
+                        <?php for($i=1; $i<=$data['rating']; $i++){?>
+                                <i class="fa fa-star"></i>
+                            <?php } ?>
+                        <?php for($i=1; $i<=5-$data['rating']; $i++){?>
+                            <i class="fa fa-star-o"></i>
+                        <?php } ?>
+                    </div>
+                    <p>$ <?= $data['price']?></p>
+                    <form action="server.php" method="post">
+                        Quantity:
+                        <select name="quantity" id="">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select><br><br>
+                        <input type="hidden" name="p_id" value="<?=$data['id']?>">
+                        <input type="hidden" name="p_name" value="<?=$data['name']?>">
+                        <input type="hidden" name="p_category" value="<?=$data['category']?>">
+                        <input type="hidden" name="p_price" value="<?=$data['price']?>">
+                        <input type="hidden" name="p_image" value="<?=$data['image']?>">
+                        <input type="hidden" name="from_products" value="from_products">
+                        <input type="submit" name="add_to_cart" value="Shop Now">
+                    </form>
+                </div>
+            <?php 
+        }?>    
+    </div>
 
 
 <!--Home Page Ends-->
