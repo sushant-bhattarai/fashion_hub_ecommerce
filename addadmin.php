@@ -70,7 +70,7 @@
             <br>
             <div>
                 <label for="phone">Phone no. :</label>
-                <input type="text" name="phone" id="phone" placeholder="123@abc.com" required>
+                <input type="text" name="phone" id="phone" placeholder="9862457821" required>
             </div>
             <?php if (isset($_SESSION['already_exist_phone'])) : ?>
                 <br><label style="color: red;"> 

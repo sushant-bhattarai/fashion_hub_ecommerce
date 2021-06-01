@@ -209,11 +209,3 @@ a{
     background: rgb(55, 61, 53);
     font-weight: bold;
 }
-
-.error {
-    color: #a94442; 
-}
-
-.success {
-    color: #3c763d; 
-  }

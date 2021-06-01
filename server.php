@@ -76,6 +76,7 @@ if (isset($_POST['login_user'])) {
     }
   
     // if (count($errors) == 0) {
+        $password = md5($password);
         $query = "SELECT * FROM admin_db WHERE (email='$username' AND password='$password') OR (phone='$username' AND password='$password')";
         $results = mysqli_query($db, $query);
         if (mysqli_num_rows($results) == 1) {

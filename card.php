@@ -40,7 +40,7 @@
                                 </div>
                                 <div class="col-xs-5 col-md-5 pull-right">
                                     <div class="form-group">
-                                        <label>TotalBill</label>
+                                        <label>Total Amount</label>
                                         <input type="tel" class="form-control" value="$ <?= $_SESSION['bill_amt'] ?>" disabled/>
                                         <input type="hidden" name="total_bill" value="<?= $_SESSION['bill_amt'] ?>">
                                     </div>
@@ -89,7 +89,7 @@
                                                 foreach($_SESSION['items'] as $key=>$value){
                                                     echo $value['name']. " * ". $value['quantity']. " : $" . $value['price']*$value['quantity'].","."\n";
                                                 }
-                                            echo $_SESSION['bill_amt']?></textarea>
+                                            echo ":Total: $".$_SESSION['bill_amt']?></textarea>
                                     </div>
                                 </div>
                             </div><br>
